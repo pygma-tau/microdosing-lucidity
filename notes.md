@@ -7,7 +7,10 @@ title: Notes
 Perpetually incorrect, always in progress. 
 
 ---
- 
-[Bandits](/bandits)  
+
+[Neighborhood Semantics](/neighborhood-semantics)  
+[KANs](/kan)   
+[Bandits](/bandits)     
 [Superposition](/superposition)  
 [Aesthetics](/aesthetics)  
+[Blogs](/blogs)  

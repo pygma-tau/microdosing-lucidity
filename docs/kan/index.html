@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+        <title>Kolmogorov-Arnold Networks</title>
+        <link rel="stylesheet" type="text/css" href="../css/default.css" />
+        <script src="../js/bootstrap.min.js"></script>
+        <script type="text/javascript" async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+    </head>
+    <body>
+        <div id="header">
+            <div id="logo">
+            </div>
+            <div id="navigation">
+                <p></p>
+            </div>
+        </div>
+
+        <div id="content">
+            <h1>Kolmogorov-Arnold Networks</h1>
+
+            <div class="info">
+
+    
+
+    
+    
+</div>
+
+<p>[<a href="../notes"><em>Notes</em></a>]</p>
+<p>tl;dr—you can improve performance (really, fitting to physics-like models) by placing your activation functions (nonlinearities) on the edges between your nodes and making them <em>learnable</em> rather than fixed. your nodes then just pool the activations from each of the edges pointing to it</p>
+<p>this differs from MLPs, which have activation functions on nodes (they do the aggregation and the nonlinearity), while applying a linear transformation in between (weights and biases).</p>
+<p>KANs have no such analogous linear transformation, instead, they approximate good activation functions with <a href="https://en.wikipedia.org/wiki/B-spline">B-splines</a>. Apparently, this allows them to escape the curse of dimensionality because the function can be “approximated well with a residue rate <strong>independent of the dimension</strong>” (emphasis theirs)</p>
+<p>i get the vibe that this is pretty dependent on the underlying generating process being approximable by smooth functions, and I also don’t think that GPU kernels have been optimized well for KANs? plausibly we can just write better kernels in CUDA/Triton for this. I think I’ll do this</p>
+<p>ah, also the reason why they work: the <a href="https://en.wikipedia.org/wiki/Kolmogorov%E2%80%93Arnold_representation_theorem">Kolmogorov-Arnold Representation theorem</a> guarantees that any multivariate continuous function can be represented as a superposition of two univariate continuous functions. MLPs satisfy a different universal approximation theorem that applies to Borel-measurable functions.</p>
+<p>Readings:</p>
+<ul>
+<li><a href="https://arxiv.org/abs/2404.19756">KAN: Kolmogorov-Arnold Networks</a></li>
+<li><a href="https://github.com/KindXiaoming/pykan">pykan</a>—Github repo</li>
+</ul>
+
+        </div>
+        <div id="footer">
+            <p></p>
+        </div>
+    </body>
+</html>

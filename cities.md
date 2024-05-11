@@ -12,9 +12,32 @@ Below are the half-deranged rambles of a man who enjoys making sweeping cultural
 
 If you find any particularly compelling, feel free to [email me](mailto:kumar.yudhister@proton.me)! Likewise if you want to argue.
 
+(there are also depressingly many placeholders here. I'll get to all of them someday)
+
 ---
 
-[Rome](/rome)  
+[Cambridge](/cambridge)  
+[Clarksville](/clarksville)  
+[Rome](/rome)   
+[Taipei](/taipei)  
+[Nummela](/nummela)  
+[Newbridge-on-Wye](/newbridge-on-wye)  
+[Kyiv](/kyiv)   
+[Tbilisi](/tbilisi)  
 [Istanbul](/istanbul)  
+[Avebury](/avebury)   
+[Delhi](/delhi)  
+[Manali](/manali)  
+[Tokyo](/tokyo)  
+[Hakuba](/hakuba)  
+[Warsaw](/warsaw)  
+[London](/london)  
+[Paris](/paris)  
 [Geneva](/geneva)  
-[Toledo](/toledo)  
+[Boston](/boston)  
+[Toledo](/toledo)   
+[Ann Arbor](/ann-arbor)  
+[Prague](/prague)  
+[Berkeley](/berkeley)  
+[Oxford](/oxford)  
+[San Francisco](/sf)  

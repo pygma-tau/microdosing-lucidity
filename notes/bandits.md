@@ -25,3 +25,11 @@ We'd like stronger explore incentives that make achieving optimality more tracta
 $$A_t = \text{argmax}_a \left[ Q_t(a) + c \sqrt{\frac{\ln t}{N_t(a)}}\right]$$
 
 where $N_t(a)$ is the number of times each arm has been sampled. This algorithm goes through all the arms at least once (dividing by 0 = inf), and then slowly converges on the one with the best reward. $c$ is some parameter. This **upper confidence bound** action selection converges more nicely. We take the square root because it's approximately meant to capture the 'variance' of $a$'s value, ergo the 'upper bound' nature of this optimization.
+
+There's some interesting infra-Bayesian stuff here.
+
+Readings:
+
+- [Imprecise Multi-Armed Bandits](https://arxiv.org/abs/2405.05673)---Vanessa Kosoy
+- Sutton & Barto, Chapter 2
+- 
