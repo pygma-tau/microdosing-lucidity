@@ -76,7 +76,7 @@ In other words, how do we make all the sequences with "[almost all](https://www.
 Almost All Agreement ft. Ultrafilters
 -------------------------------------
 
-Taken from "[five ways to say "Almost Always" and actually mean it](https://www.ykumar.org/almost-always/)":
+Taken from "[five ways to say "Almost Always" and actually mean it](/almost-always)":
 
 > A *filter* \\(\\mathcal{F}\\) on an arbitrary set \\(I\\) is a collection of subsets of \\(I\\) that is closed under set intersections and supersets. (Note that this means that the smallest filter on \\(I\\) is \\(I\\) itself).
 > 
