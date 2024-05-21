@@ -3,6 +3,8 @@ title: The Rise of Christianity
 ---
 ## How the Obscure, Marginal Jesus Movement Became the Dominant Religious Force in the Western World in a Few Centuries
 
+*by Rodney Stark*
+
 [[*Texts*](/texts)]
 
 Christianity rose because:
