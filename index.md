@@ -37,7 +37,13 @@ title: Microdosing Lucidity
 
 Anyway, I'm Yudhister! Nice to meet you :D
 
-\[*[Notes](/notes)*\] \\ \[*[Cities](/cities)*\] \\ \[*[Texts](/texts)*\] 
+\[*[Notes](/notes)*\] \\ \[*[Cities](/cities)*\] \\ \[*[Texts](/texts)*\]
+
+- [Self-Referential Probabilistic Logic Admits the Payor's Lemma](/probabilistic-payor) --- *November 10, 2023*
+- [Hyperreals in a Nutshell](/hyperreals-in-a-nutshell) --- *May 5, 2023*
+- [five ways to say 'Almost Always' and actually mean it](/almost-always) --- *April 17, 2023*
+- [The Hidden Perils of Hydrogen](/hidden-perils-of-hydrogen) --- *January 25, 2023*
+- [Directed Babbling](/directed-babbling) --- *January 11, 2023*
 
 
 

@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+        <title>Self-Referential Probabilistic Logic Admits the Payor's Lemma</title>
+        <link rel="stylesheet" type="text/css" href="../css/default.css" />
+        <script src="../js/bootstrap.min.js"></script>
+        <script type="text/javascript" async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+    </head>
+    <body>
+        <div id="header">
+            <div id="logo">
+            </div>
+            <div id="navigation">
+                <p></p>
+            </div>
+        </div>
+
+        <div id="content">
+            <h1>Self-Referential Probabilistic Logic Admits the Payor's Lemma</h1>
+
+            <div class="info">
+
+    
+
+    
+    
+</div>
+
+<p>[<a href="../"><em>Home</em></a>]</p>
+<p><em>In summary: A probabilistic version of the <a href="https://www.alignmentforum.org/posts/2WpPRrqrFQa6n2x3W/modal-fixpoint-cooperation-without-loeb-s-theorem">Payor’s Lemma</a> holds under the logic proposed in the <a href="http://intelligence.org/files/DefinabilityTruthDraft.pdf">Definability of Truth in Probabilistic Logic</a>. This gives us modal fixed-point-esque group cooperation even under probabilistic guarantees.</em></p>
+<h1 id="background">Background</h1>
+<p><strong>Payor’s Lemma:</strong> If <span class="math inline">\(\vdash \Box (\Box x \to x) \to x,\)</span> then <span class="math inline">\(\vdash x.\)</span></p>
+<p>We assume two rules of inference:</p>
+<ul>
+<li><strong>Necessitation:</strong> <span class="math inline">\(\vdash x \implies \vdash \Box x,\)</span></li>
+<li><strong>Distributivity:</strong> <span class="math inline">\(\vdash \Box(x \to y) \implies \vdash \Box x \to \Box y.\)</span></li>
+</ul>
+<p><strong>Proof:</strong></p>
+<ol type="1">
+<li><span class="math inline">\(\vdash x \to (\Box x \to x),\)</span> by tautology;</li>
+<li><span class="math inline">\(\vdash \Box x \to \Box (\Box x \to x),\)</span> by 1 via necessitation and distributivity;</li>
+<li><span class="math inline">\(\vdash \Box (\Box x \to x) \to x\)</span>, by assumption;</li>
+<li><span class="math inline">\(\vdash \Box x \to x,\)</span> from 2 and 3 by modus ponens;</li>
+<li><span class="math inline">\(\vdash \Box (\Box x \to x),\)</span> from 4 by necessitation;</li>
+<li><span class="math inline">\(\vdash x,\)</span> from 5 and 3 by modus ponens.</li>
+</ol>
+<p>The Payor’s Lemma is provable in all normal modal logics (as it can be proved in <span class="math inline">\(K,\)</span> the weakest, because it only uses necessitation and distributivity). Its proof sidesteps the assertion of an arbitrary modal fixedpoint, does not require internal necessitation (<span class="math inline">\(\vdash \Box x \implies \vdash \Box \Box x\)</span>), and provides the groundwork for Lobian handshake-based cooperation without Lob’s theorem.</p>
+<p>It is known that Lob’s theorem <a href="https://www.lesswrong.com/posts/oBDTMnEzptBidvmw7/probabilistic-loeb-theorem">fails to hold in reflective theories of logical uncertainty</a>. However, a <a href="https://www.alignmentforum.org/posts/ZWhJcHPmRaXAPAK5k/probabilistic-payor-lemma">proof of a probabilistic Payor’s lemma</a> has been proposed, which modifies the rules of inference necessary to be:</p>
+<ul>
+<li><strong>Necessitation:</strong> <span class="math inline">\(\vdash x \implies \vdash \Box_p \, x,\)</span></li>
+<li><strong>Weak Distributivity:</strong> <span class="math inline">\(\vdash x \to y \implies \vdash \Box_p \, x \to \Box_p \, y.\)</span>
+where here we take <span class="math inline">\(\Box_p\)</span> to be an operator which returns True if the internal credence of <span class="math inline">\(x\)</span> is greater than <span class="math inline">\(p\)</span> and False if not. (Formalisms incoming).</li>
+</ul>
+<p>The question is then: does there exist a consistent formalism under which these rules of inference hold? The answer is yes, and it is provided by <a href="http://intelligence.org/files/DefinabilityTruthDraft.pdf">Christiano 2012</a>.
+# Setup</p>
+<p>(Regurgitation and rewording of the relevant parts of the <a href="http://intelligence.org/files/DefinabilityTruthDraft.pdf">Definability of Truth</a>)</p>
+<p>Let <span class="math inline">\(L\)</span> be some language and <span class="math inline">\(T\)</span> be a theory over that language. Assume that <span class="math inline">\(L\)</span> is powerful enough to admit a Godel encoding and that it contains terms which correspond to the rational numbers <span class="math inline">\(\mathbb{Q}.\)</span> Let <span class="math inline">\(\phi_1, \phi_{2} \ldots\)</span> be some fixed enumeration of all sentences in <span class="math inline">\(L.\)</span> Let <span class="math inline">\(\ulcorner \phi \urcorner\)</span> represent the Godel encoding of <span class="math inline">\(\phi.\)</span></p>
+<p>We are interested in the existence and behavior of a function <span class="math inline">\(\mathbb{P}: L \to [0,1]^L,\)</span> which assigns a real-valued probability in <span class="math inline">\([0,1]\)</span> to each well-formed sentence of <span class="math inline">\(L.\)</span> We are guaranteed the coherency of <span class="math inline">\(\mathbb{P}\)</span> with the following assumptions:</p>
+<ol type="1">
+<li>For all <span class="math inline">\(\phi, \psi \in L\)</span> we have that <span class="math inline">\(\mathbb{P}(\phi) = \mathbb{P}(\phi \land \psi) + \mathbb{P}(\phi \lor \neg \psi).\)</span></li>
+<li>For each tautology <span class="math inline">\(\phi,\)</span> we have <span class="math inline">\(\mathbb{P}(\phi) = 1.\)</span></li>
+<li>For each contradiction <span class="math inline">\(\phi,\)</span> we have <span class="math inline">\(\mathbb{P}(\phi) = 0.\)</span></li>
+</ol>
+<p>Note: I think that 2 &amp; 3 are redundant (as says John Baez), and that these axioms do not necessarily constrain <span class="math inline">\(\mathbb{P}\)</span> to <span class="math inline">\([0,1]\)</span> in and of themselves (hence the extra restriction). However, neither concern is relevant to the result.</p>
+<p>A coherent <span class="math inline">\(\mathbb{P}\)</span> corresponds to a distribution <span class="math inline">\(\mu\)</span> over models of <span class="math inline">\(L.\)</span> A coherent <span class="math inline">\(\mathbb{P}\)</span> which gives probability 1 to <span class="math inline">\(T\)</span> corresponds to a distribution <span class="math inline">\(\mu\)</span> over models of <span class="math inline">\(T\)</span>. We denote a function which generates a distribution over models of a given theory <span class="math inline">\(T\)</span> as <span class="math inline">\(\mathbb{P}_T.\)</span></p>
+<p><strong>Syntactic-Probabilistic Correspondence:</strong> Observe that <span class="math inline">\(\mathbb{P}_T(\phi) =1 \iff T \vdash \phi.\)</span> This allows us to interchange the notions of syntactic consequence and probabilistic certainty.</p>
+<p>Now, we want <span class="math inline">\(\mathbb{P}\)</span> to give sane probabilities to sentences which talk about the probability <span class="math inline">\(\mathbb{P}\)</span> gives them. This means that we need some way of giving <span class="math inline">\(L\)</span> the ability to talk about itself.</p>
+<p>Consider the formula <span class="math inline">\(Bel.\)</span> <span class="math inline">\(Bel\)</span> takes as input the Godel encodings of sentences. <span class="math inline">\(Bel(\ulcorner \phi \urcorner)\)</span> contains <em>arbitrarily precise</em> information about <span class="math inline">\(\mathbb{P}(\phi).\)</span> In other words, if <span class="math inline">\(\mathbb{P}(\phi) = p,\)</span> then the statement <span class="math inline">\(Bel(\ulcorner \phi \urcorner) &gt; a\)</span> is True for all <span class="math inline">\(a &lt; p,\)</span> and the statement <span class="math inline">\(Bel(\ulcorner \phi \urcorner) &gt; b\)</span> is False for all <span class="math inline">\(b &gt; p.\)</span> <span class="math inline">\(Bel\)</span> is fundamentally <em>a part</em> of the system, as opposed to being some metalanguage concept.</p>
+<p>(These are identical properties to that represented in Christiano 2012 by <span class="math inline">\(\mathbb{P}(\ulcorner \phi \urcorner).\)</span> I simply choose to represent <span class="math inline">\(\mathbb{P}(\ulcorner \phi \urcorner)\)</span> with <span class="math inline">\(Bel(\ulcorner \phi \urcorner)\)</span> as it (1) reduces notational uncertainty and (2) seems to be more in the spirit of Godel’s <span class="math inline">\(Bew\)</span> for provability logic).</p>
+<p>Let <span class="math inline">\(L'\)</span> denote the language created by affixing <span class="math inline">\(Bel\)</span> to <span class="math inline">\(L.\)</span> Then, there exists a coherent <span class="math inline">\(\mathbb{P}_T\)</span> for a given consistent theory <span class="math inline">\(T\)</span> over <span class="math inline">\(L\)</span> such that the following reflection principle is satisfied:
+<span class="math display">\[\forall \phi \in L' \, \, \forall a,b, \in \mathbb{Q} : (a &lt; \mathbb{P}_{T}(\phi)&lt;b) \implies \mathbb{P}_{T}(a &lt; Bel(\ulcorner \phi \urcorner) &lt; b) = 1.\]</span>
+In other words, <span class="math inline">\(a  &lt; \mathbb{P}_T(\phi) &lt; b\)</span> implies <span class="math inline">\(T \vdash a &lt; Bel(\ulcorner \phi \urcorner) &lt; b.\)</span>
+# Proof</p>
+<p>(From now, for simplicity, we use <span class="math inline">\(\mathbb{P}\)</span> to refer to <span class="math inline">\(\mathbb{P}_T\)</span> and <span class="math inline">\(\vdash\)</span> to refer to <span class="math inline">\(T \vdash.\)</span> You can think of this as fixing some theory <span class="math inline">\(T\)</span> and operating within it).</p>
+<p>Let <span class="math inline">\(\Box_p \, (\phi)\)</span> represent the sentence <span class="math inline">\(Bel(\ulcorner \phi \urcorner) &gt; p,\)</span> for some <span class="math inline">\(p \in \mathbb{Q}.\)</span> We abbreviate <span class="math inline">\(\Box_p \, (\phi)\)</span> as <span class="math inline">\(\Box_p \, \phi.\)</span> Then, we have the following:</p>
+<p><strong>Probabilistic Payor’s Lemma:</strong> If <span class="math inline">\(\vdash \Box_p \, (\Box_p \, x \to x) \to x,\)</span> then <span class="math inline">\(\vdash x.\)</span></p>
+<p><strong>Proof</strong> <a href="https://www.lesswrong.com/posts/ZWhJcHPmRaXAPAK5k/probabilistic-payor-lemma">as per Demski</a>:</p>
+<ol type="1">
+<li><span class="math inline">\(\vdash x \to (\Box_{p}\,x \to x),\)</span> by tautology;</li>
+<li><span class="math inline">\(\vdash \Box_{p}\, x \to \Box_{p}\, (\Box_{p}\, x \to x),\)</span> by 1 via weak distributivity,</li>
+<li><span class="math inline">\(\vdash \Box_{p} (\Box_{p} \, x \to x) \to x\)</span>, by assumption;</li>
+<li><span class="math inline">\(\vdash \Box_{p} \, x \to x,\)</span> from 2 and 3 by modus ponens;</li>
+<li><span class="math inline">\(\vdash \Box_{p}\, (\Box_{p}\, x \to x),\)</span> from 4 by necessitation;</li>
+<li><span class="math inline">\(\vdash x,\)</span> from 5 and 3 by modus ponens.
+## Rules of Inference</li>
+</ol>
+<p><strong>Necessitation:</strong> <span class="math inline">\(\vdash x \implies \vdash \Box_p \, x.\)</span> If <span class="math inline">\(\vdash x,\)</span> then <span class="math inline">\(\mathbb{P}(x) = 1\)</span> by syntactic-probabilistic correspondence, so by the reflection principle we have <span class="math inline">\(\mathbb{P}(\Box_p \, x) = 1,\)</span> and as such <span class="math inline">\(\vdash \Box_p \, x\)</span> by syntactic-probabilistic correspondence.</p>
+<p><strong>Weak Distributivity:</strong> <span class="math inline">\(\vdash x \to y \implies \vdash \Box_p \, x \to \Box_p \, y.\)</span> The proof of this is slightly more involved.</p>
+<p>From <span class="math inline">\(\vdash x \to y\)</span> we have (via correspondence) that <span class="math inline">\(\mathbb{P}(x \to y) = 1,\)</span> so <span class="math inline">\(\mathbb{P}(\neg x \lor y) = 1.\)</span> We want to prove that <span class="math inline">\(\mathbb{P}(\Box_p \, x \to \Box_p \, y) = 1\)</span> from this, or <span class="math inline">\(\mathbb{P}((Bel(\ulcorner x \urcorner) \leq p) \lor (Bel(\ulcorner y \urcorner) &gt; p)) = 1.\)</span> We can do casework on <span class="math inline">\(x\)</span>. If <span class="math inline">\(\mathbb{P}(x) \leq p,\)</span> then weak distributivity follows from vacuousness. If <span class="math inline">\(\mathbb{P}(x) &gt;p,\)</span> then as
+<span class="math display">\[
+\begin{align*}
+\mathbb{P}(\neg x \lor y) &amp;= \mathbb{P}(x \land(\neg x \lor y)) + \mathbb{P}(\neg x \land (\neg x \lor y)), \\
+1 &amp;= \mathbb{P}(x \land y) + \mathbb{P}(\neg x \lor (\neg x \land y)), \\
+1 &amp;= \mathbb{P}(x \land y) + \mathbb{P}(\neg x),
+\end{align*}
+\]</span>
+<span class="math inline">\(\mathbb{P}(\neg x) &lt; 1-p,\)</span> so <span class="math inline">\(\mathbb{P}(x \land y) &lt; p,\)</span> and therefore <span class="math inline">\(\mathbb{P}(y) &gt; p.\)</span> Then, <span class="math inline">\(Bel(\ulcorner y \urcorner) &gt; p\)</span> is True by reflection, so by correspondence it follows that <span class="math inline">\(\vdash \Box_p \, x \to \Box_p y.\)</span></p>
+<p>(I’m pretty sure this modal logic, following necessitation and weak distributivity, is not normal (it’s weaker than <span class="math inline">\(K\)</span>). This may have some implications? But in the ‘agent’ context I don’t think that restricting ourselves to modal logics makes sense).</p>
+<h1 id="bots">Bots</h1>
+<p>Consider agents <span class="math inline">\(A,B,C\)</span> which return True to signify cooperation in a multi-agent Prisoner’s Dilemma and False to signify defection. (Similar setup to <a href="https://www.alignmentforum.org/posts/2WpPRrqrFQa6n2x3W/modal-fixpoint-cooperation-without-loeb-s-theorem">Critch’s</a> ). Each agent has ‘beliefs’ <span class="math inline">\(\mathbb{P}_A, \mathbb{P}_B, \mathbb{P}_C : L \to [0,1]^L\)</span> representing their credences over all formal statements in their respective languages (we are assuming they share the same language: this is unnecessary).</p>
+<p>Each agent has the ability to reason about their own ‘beliefs’ about the world arbitrarily precisely, and this allows them full knowledge of their utility function (if they are VNM agents, and up to the complexity of the world-states they can internally represent). Then, these agents can be modeled with Christiano’s probabilistic logic! And I would argue it is natural to do so (you could easily imagine an agent having access to its own beliefs with arbitrary precision by, say, repeatedly querying its own preferences).</p>
+<p>Then, if <span class="math inline">\(A,B,C\)</span> each behave in the following manner:
+- <span class="math inline">\(\vdash \Box_a \, (\Box_e \, E \to E) \to A,\)</span>
+- <span class="math inline">\(\vdash  \Box_b \, (\Box_e \, E \to E) \to B,\)</span>
+- <span class="math inline">\(\vdash \Box_c \, (\Box_e \, E \to E) \to C,\)</span></p>
+<p>where <span class="math inline">\(E = A \land B \land C\)</span> and <span class="math inline">\(e = \max (\{ a,b,c \}),\)</span> they will cooperate by the probabilistic Payor’s lemma.</p>
+<p><strong>Proof:</strong></p>
+<ol type="1">
+<li><span class="math inline">\(\vdash \Box_a \, (\Box_e \, E \to E) \land \Box_b \, (\Box_e \, E \to E) \land \Box_c \, (\Box_e \, E \to E) \to A \land B \land C,\)</span> via conjunction;</li>
+<li><span class="math inline">\(\vdash \Box_e \, (\Box_e \, E \to E) \to E,\)</span> as if the <span class="math inline">\(e\)</span>-threshold is satisfied all others are as well;</li>
+<li><span class="math inline">\(\vdash E,\)</span> by probabilistic Payor.</li>
+</ol>
+<p>This can be extended to arbitrarily many agents. Moreso, the valuable insight here is that cooperation is achieved <em>when the evidence that the group cooperates exceeds each and every member’s individual threshold for cooperation.</em> A formalism of the intuitive strategy ‘I will only cooperate if there are no defectors’ (or perhaps ‘we will only cooperate if there are no defectors’).</p>
+<p>It is important to note that any <span class="math inline">\(\mathbb{P}\)</span> is going to be uncomputable. However, I think modeling agents as having arbitrary access to their beliefs is in line with existing ‘ideal’ models (think VNM – I suspect that this formalism closely maps to VNM agents that have access to arbitrary information about their utility function, at least in the form of preferences), and these agents play well with modal fixedpoint cooperation.</p>
+<h1 id="acknowledgements">Acknowledgements</h1>
+<p>This work was done while I was a 2023 Summer Research Fellow at the Center on Long-Term Risk. Many thanks to Abram Demski, my mentor who got me started on this project, as well as Sam Eisenstat for some helpful conversations. CLR was a great place to work! Would highly recommend if you’re interested in s-risk reduction.</p>
+
+        </div>
+        <div id="footer">
+            <p></p>
+        </div>
+    </body>
+</html>

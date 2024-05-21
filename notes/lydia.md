@@ -3,6 +3,24 @@ title: Lydia
 ---
 my journal to u
 
+# 2024-05-13
+
+fuck celeste is hot
+
+# 2025-05-13
+
+i don't know how i feel about you taking maximal advantage of institutions. it feels like a lot of the advantages you've had in your life have just existed because you were able to wrap institutions around your finger? when you actually weren't deserving of it or something
+
+like you are just very fine and sane in airports now (i predict). you just managed to get rid of your blockers. and this is what you should have done years ago, except institutions kept legitimizing your bad behavior
+
+i feel this strongly in this place w.r.t. your extra tutorials and the fact that you get to take mocks ??? like jesus christ that's lucky, but also i guess a function of merton. and you get extra time on your exams??? like ofc you'll score highly because of that, i don't know what else to do about it
+
+i've been trying to write you playlists. why can't you just understand that you can just look at the first letter of every word smh
+
+well, this won't be conducive to you actually doing good work. so like, cope i guess
+
+you have to learn how to be self sufficient. the world doesn't reward laziness. but it does make free riders godo
+
 # 2024-05-10
 
 was talking with Switch today, after we stopped talking. Sent her the evangelion song to start a conversation. I thought it would be good? and it was, when we talked about music. but jesus christ she is a cesspit?? 

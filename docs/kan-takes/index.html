@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+        <title>Brief Takes on Kolmogorov-Arnold Networks</title>
+        <link rel="stylesheet" type="text/css" href="../css/default.css" />
+        <script src="../js/bootstrap.min.js"></script>
+        <script type="text/javascript" async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+    </head>
+    <body>
+        <div id="header">
+            <div id="logo">
+            </div>
+            <div id="navigation">
+                <p></p>
+            </div>
+        </div>
+
+        <div id="content">
+            <h1>Brief Takes on Kolmogorov-Arnold Networks</h1>
+
+            <div class="info">
+
+    
+
+    
+    
+</div>
+
+<p>[<a href="../"><em>Home</em></a>]</p>
+<p>There’s been a lot of hype recently about <a href="https://arxiv.org/html/2404.19756v1">Kolmogorov-Arnold networks</a> (hereafter KANs) and whether or not they provide a sufficient replacement for MLPs, have a place in future novel-architecture development, and what they mean for understanding neural networks generally. Here, I aim to:</p>
+<ol type="1">
+<li>provide a lucid exposition of their relevant properties,</li>
+<li>relay some of my empirical findings and analyze their scaling properties,</li>
+<li>pontificate on the potentially-revolutionized AI utopia we’re all going to be sleepwalking into.</li>
+</ol>
+<p>Righto!</p>
+<h1 id="formalisms">Formalisms</h1>
+<p>MLPs (Multi-Layer Perceptrons) are pretty simple. Fundamentally, they’re just a composition of affine transformations <span class="math inline">\(W_i\)</span> and nonlinearities <span class="math inline">\(\sigma_i\)</span> applied to a given vector <span class="math inline">\(\bf{x},\)</span> for <span class="math inline">\(L\)</span> layers.</p>
+<p><span class="math display">\[
+\text{MLP}(x) = (W_{L-1} \circ \sigma_{L-1} \circ \cdots \circ \sigma_{1} \circ W_{0})(x). 
+\]</span></p>
+<p>(We are denoting <span class="math inline">\(\sigma_i\)</span> for each individual layer because hypothetically the activation functions in fact could be different, but typically there’s just a single <span class="math inline">\(\sigma\)</span> (ReLU, GeLU, LeakyReLU, sigmoid) except in GAN-like cases where there’s a tanh at the end. but they’re all roughly the same)</p>
+<p>In KANs, this is slightly different. Each KAN layer <span class="math inline">\(\Phi_l\)</span> is a matrix of continuous functions <span class="math inline">\(\phi_{i,j}\)</span>, where each individual <span class="math inline">\(\phi_{i,j}\)</span> corresponds to the activation function for each neuron in the layer. Then, these activation functions are learned w/backprop.</p>
+<p>You can think of this as at each node, instead of applying weights and biases, you just sum/pool all the activations of the neurons going to that node. Another intuition is that there’s no separation of linear and non-linear layers.</p>
+<p>The implementation details of the KAN described in the paper are, in my opinion, not really worth going through, because they’re just not the most efficient version of what is possible. The fundamnetal problem here is: how do you parametrize <span class="math inline">\(\phi_{i,j}?\)</span> The paper uses B-splines, but Fourier bases and Chebyshev polynomials are also worth looking at (and in fact other repos have tried this).</p>
+<ul>
+<li>what is, in principle, the best way to build function approximators? there’s this Kolmogorov-Arnold representation, there’s the Stone-Weierstrass theorem, there’s a lot of other things—and you can just think of this as a general function that you find the gradient of and then update all the way in that direction via backprop. Fundamentally, what’s the best way to do this?</li>
+</ul>
+
+        </div>
+        <div id="footer">
+            <p></p>
+        </div>
+    </body>
+</html>

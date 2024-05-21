@@ -4,10 +4,14 @@ title: Texts
 
 \[*[Home](/)*\]
 
-Opinions on other writing.  
+~~Opinions~~ Writings on other writing.  
 
 ---
 
+[25] Rodney Stark, *[The Rise of Christianity](/stark-christianity)*  
+[24] Ben Collier, *[Tor: From the Dark Web to the Future of Privacy](/collier-tor)*   
+[23] Bertrand Russell, *[Proposed Roads to Freedom: Socialism, Anarchism, and Syndicalism](/proposed-roads-to-freedom)*   
+[22] Barack Obama, *[Dreams from My Father: A Story of Race and Inheritance](/dreams-from-my-father)*  
 [21] Paul Feyerabend, *[Against Method](/against-method)*  
 [20] Kathryn Paige Harden, *[The Genetic Lottery: Why DNA Matters for Social Equality](/genetic-lottery)*  
 [19] C.S. Lewis, *[A Preface to Paradise Lost](/preface-to-paradise-lost)*  
