@@ -53,8 +53,8 @@
 <li><strong>Weak Distributivity:</strong> <span class="math inline">\(\vdash x \to y \implies \vdash \Box_p \, x \to \Box_p \, y.\)</span>
 where here we take <span class="math inline">\(\Box_p\)</span> to be an operator which returns True if the internal credence of <span class="math inline">\(x\)</span> is greater than <span class="math inline">\(p\)</span> and False if not. (Formalisms incoming).</li>
 </ul>
-<p>The question is then: does there exist a consistent formalism under which these rules of inference hold? The answer is yes, and it is provided by <a href="http://intelligence.org/files/DefinabilityTruthDraft.pdf">Christiano 2012</a>.
-# Setup</p>
+<p>The question is then: does there exist a consistent formalism under which these rules of inference hold? The answer is yes, and it is provided by <a href="http://intelligence.org/files/DefinabilityTruthDraft.pdf">Christiano 2012</a>.</p>
+<h1 id="setup">Setup</h1>
 <p>(Regurgitation and rewording of the relevant parts of the <a href="http://intelligence.org/files/DefinabilityTruthDraft.pdf">Definability of Truth</a>)</p>
 <p>Let <span class="math inline">\(L\)</span> be some language and <span class="math inline">\(T\)</span> be a theory over that language. Assume that <span class="math inline">\(L\)</span> is powerful enough to admit a Godel encoding and that it contains terms which correspond to the rational numbers <span class="math inline">\(\mathbb{Q}.\)</span> Let <span class="math inline">\(\phi_1, \phi_{2} \ldots\)</span> be some fixed enumeration of all sentences in <span class="math inline">\(L.\)</span> Let <span class="math inline">\(\ulcorner \phi \urcorner\)</span> represent the Godel encoding of <span class="math inline">\(\phi.\)</span></p>
 <p>We are interested in the existence and behavior of a function <span class="math inline">\(\mathbb{P}: L \to [0,1]^L,\)</span> which assigns a real-valued probability in <span class="math inline">\([0,1]\)</span> to each well-formed sentence of <span class="math inline">\(L.\)</span> We are guaranteed the coherency of <span class="math inline">\(\mathbb{P}\)</span> with the following assumptions:</p>
@@ -71,8 +71,8 @@ where here we take <span class="math inline">\(\Box_p\)</span> to be an operator
 <p>(These are identical properties to that represented in Christiano 2012 by <span class="math inline">\(\mathbb{P}(\ulcorner \phi \urcorner).\)</span> I simply choose to represent <span class="math inline">\(\mathbb{P}(\ulcorner \phi \urcorner)\)</span> with <span class="math inline">\(Bel(\ulcorner \phi \urcorner)\)</span> as it (1) reduces notational uncertainty and (2) seems to be more in the spirit of Godel’s <span class="math inline">\(Bew\)</span> for provability logic).</p>
 <p>Let <span class="math inline">\(L'\)</span> denote the language created by affixing <span class="math inline">\(Bel\)</span> to <span class="math inline">\(L.\)</span> Then, there exists a coherent <span class="math inline">\(\mathbb{P}_T\)</span> for a given consistent theory <span class="math inline">\(T\)</span> over <span class="math inline">\(L\)</span> such that the following reflection principle is satisfied:
 <span class="math display">\[\forall \phi \in L' \, \, \forall a,b, \in \mathbb{Q} : (a &lt; \mathbb{P}_{T}(\phi)&lt;b) \implies \mathbb{P}_{T}(a &lt; Bel(\ulcorner \phi \urcorner) &lt; b) = 1.\]</span>
-In other words, <span class="math inline">\(a  &lt; \mathbb{P}_T(\phi) &lt; b\)</span> implies <span class="math inline">\(T \vdash a &lt; Bel(\ulcorner \phi \urcorner) &lt; b.\)</span>
-# Proof</p>
+In other words, <span class="math inline">\(a  &lt; \mathbb{P}_T(\phi) &lt; b\)</span> implies <span class="math inline">\(T \vdash a &lt; Bel(\ulcorner \phi \urcorner) &lt; b.\)</span></p>
+<h1 id="proof">Proof</h1>
 <p>(From now, for simplicity, we use <span class="math inline">\(\mathbb{P}\)</span> to refer to <span class="math inline">\(\mathbb{P}_T\)</span> and <span class="math inline">\(\vdash\)</span> to refer to <span class="math inline">\(T \vdash.\)</span> You can think of this as fixing some theory <span class="math inline">\(T\)</span> and operating within it).</p>
 <p>Let <span class="math inline">\(\Box_p \, (\phi)\)</span> represent the sentence <span class="math inline">\(Bel(\ulcorner \phi \urcorner) &gt; p,\)</span> for some <span class="math inline">\(p \in \mathbb{Q}.\)</span> We abbreviate <span class="math inline">\(\Box_p \, (\phi)\)</span> as <span class="math inline">\(\Box_p \, \phi.\)</span> Then, we have the following:</p>
 <p><strong>Probabilistic Payor’s Lemma:</strong> If <span class="math inline">\(\vdash \Box_p \, (\Box_p \, x \to x) \to x,\)</span> then <span class="math inline">\(\vdash x.\)</span></p>
@@ -101,10 +101,12 @@ In other words, <span class="math inline">\(a  &lt; \mathbb{P}_T(\phi) &lt; b\)<
 <h1 id="bots">Bots</h1>
 <p>Consider agents <span class="math inline">\(A,B,C\)</span> which return True to signify cooperation in a multi-agent Prisoner’s Dilemma and False to signify defection. (Similar setup to <a href="https://www.alignmentforum.org/posts/2WpPRrqrFQa6n2x3W/modal-fixpoint-cooperation-without-loeb-s-theorem">Critch’s</a> ). Each agent has ‘beliefs’ <span class="math inline">\(\mathbb{P}_A, \mathbb{P}_B, \mathbb{P}_C : L \to [0,1]^L\)</span> representing their credences over all formal statements in their respective languages (we are assuming they share the same language: this is unnecessary).</p>
 <p>Each agent has the ability to reason about their own ‘beliefs’ about the world arbitrarily precisely, and this allows them full knowledge of their utility function (if they are VNM agents, and up to the complexity of the world-states they can internally represent). Then, these agents can be modeled with Christiano’s probabilistic logic! And I would argue it is natural to do so (you could easily imagine an agent having access to its own beliefs with arbitrary precision by, say, repeatedly querying its own preferences).</p>
-<p>Then, if <span class="math inline">\(A,B,C\)</span> each behave in the following manner:
-- <span class="math inline">\(\vdash \Box_a \, (\Box_e \, E \to E) \to A,\)</span>
-- <span class="math inline">\(\vdash  \Box_b \, (\Box_e \, E \to E) \to B,\)</span>
-- <span class="math inline">\(\vdash \Box_c \, (\Box_e \, E \to E) \to C,\)</span></p>
+<p>Then, if <span class="math inline">\(A,B,C\)</span> each behave in the following manner:</p>
+<ul>
+<li><span class="math inline">\(\vdash \Box_a \, (\Box_e \, E \to E) \to A,\)</span></li>
+<li><span class="math inline">\(\vdash  \Box_b \, (\Box_e \, E \to E) \to B,\)</span></li>
+<li><span class="math inline">\(\vdash \Box_c \, (\Box_e \, E \to E) \to C,\)</span></li>
+</ul>
 <p>where <span class="math inline">\(E = A \land B \land C\)</span> and <span class="math inline">\(e = \max (\{ a,b,c \}),\)</span> they will cooperate by the probabilistic Payor’s lemma.</p>
 <p><strong>Proof:</strong></p>
 <ol type="1">

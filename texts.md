@@ -8,6 +8,12 @@ title: Texts
 
 ---
 
+[31] Anthony Burgess, [*A Clockwork Orange*](/clockwork-orange)  
+[30] Cheryl Misak, *[Frank Ramsey: A Sheer Excess of Powers](/misak-ramsey)*  
+[29] Derek Parfit, *[Reasons and Persons](/reasons-and-persons)*   
+[28] George Eliot, *[Middlemarch](/middlemarch)*   
+[27] Plato, *[The Republic](/plato-republic)*   
+[26] Albert Camus, *[The Myth of Sisyphus](/myth-of-sisyphus)*  
 [25] Rodney Stark, *[The Rise of Christianity](/stark-christianity)*  
 [24] Ben Collier, *[Tor: From the Dark Web to the Future of Privacy](/collier-tor)*   
 [23] Bertrand Russell, *[Proposed Roads to Freedom: Socialism, Anarchism, and Syndicalism](/proposed-roads-to-freedom)*   
@@ -18,7 +24,7 @@ title: Texts
 [18] Martin Peterson, *[An Introduction to Decision Theory](/peterson-dt)*  
 [17] John Steinbeck, *[Of Mice and Men](/of-mice-and-men)*   
 [16] Joseph Heath, *[Filthy Lucre: Economics for People Who Hate Capitalism](/filthy-lucre)*  
-[15] Haruki Murakami, *[1Q84](/1q84)*  
+[15] Murakami Haruki, *[1Q84](/1q84)*  
 [14] Philip Roth, *[The Human Stain](/human-stain)*  
 [13] Graham Allison, *[Lee Kuan Yew: The Grand Master's Insights on China, the United States, and the World](/allison-lky)*  
 [12] F. Scott Fitzgerald, *[The Great Gatsby](/great-gatsby)*  

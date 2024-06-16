@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+        <title>Elements of Information Theory</title>
+        <link rel="stylesheet" type="text/css" href="../css/default.css" />
+        <script src="../js/bootstrap.min.js"></script>
+        <script type="text/javascript" async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+    </head>
+    <body>
+        <div id="header">
+            <div id="logo">
+            </div>
+            <div id="navigation">
+                <p></p>
+            </div>
+        </div>
+
+        <div id="content">
+            <h1>Elements of Information Theory</h1>
+
+            <div class="info">
+
+    
+
+    
+    
+</div>
+
+<p><em>by Thomas Cover</em></p>
+<h1 id="chapter-1---introduction-and-preview">Chapter 1 - Introduction and Preview</h1>
+<blockquote>
+<p>Information theory answers two fundamental questions in communication theory: what is the ultimate data compression (answer: the entropy H), and what is the ultimate transmission rate of communication (answer: the channel capacity C).</p>
+</blockquote>
+<p>Notes:</p>
+<ul>
+<li>The Kolmogorov complexity <span class="math inline">\(K\)</span> is approximately the Shannon entropy <span class="math inline">\(H\)</span> if the sequence is drawn at random from a distribution that has entropy <span class="math inline">\(H.\)</span> (Proof?)
+<ul>
+<li>Kolmogorov complexity is to complexity minimization as computational complexity is to runtime minimization</li>
+</ul></li>
+</ul>
+<h1 id="chapter-2---entropy-relative-entropy-and-mutual-information">Chapter 2 - Entropy, Relative Entropy, and Mutual Information</h1>
+<p>The entropy <span class="math inline">\(H(X)\)</span> (or <span class="math inline">\(H(p)\)</span>) of a discrete random variable <span class="math inline">\(X\)</span> is defined as
+<span class="math display">\[H(X) = - \sum_{x \in \mathcal{X}} p(x) \log p(x),\]</span>
+where <span class="math inline">\(\mathcal{X}\)</span> is the alphabet of <span class="math inline">\(X\)</span> and <span class="math inline">\(p(x) = \mathbb{P}(X = x), \, x \in \mathcal{X}.\)</span> Typically the log is taken in base 2, and entropy is measured in bits—if taken in base <span class="math inline">\(e\)</span>, then entropy is measured in <em>nats.</em> A different interpretation of entropy is as the expected value of <span class="math inline">\(1 / \log p(X),\)</span> such that
+<span class="math display">\[ H(X) = \mathbb{E}_{p} \left( \log \frac{1}{p(X)} \right). \]</span>
+This has more connections with entropy in e.g. thermodynamics, and has the following consequences:</p>
+<ul>
+<li><span class="math inline">\(H(X) \geq 0,\)</span> because <span class="math inline">\(0 \leq p(x) \leq 1\)</span> implies <span class="math inline">\(\log 1/p(X) \geq 0.\)</span></li>
+<li><span class="math inline">\(H_b(X) = (\log_b a) H_a(X),\)</span> because <span class="math inline">\(\log_b p = \log_b a \cdot \log_a p.\)</span></li>
+</ul>
+<p>The joint entropy <span class="math inline">\(H(X,Y)\)</span> of discrete random variables <span class="math inline">\((X,Y)\)</span> with some joint distribution <span class="math inline">\(p(x,y)\)</span> is
+<span class="math display">\[H(X,Y) = - \sum_{x \in \mathcal{X}} \sum_{y \in \mathcal{Y}} p(x,y) \log p(x,y),\]</span> which is identical to <span class="math display">\[H(X,Y) = -\mathbb{E} \log p(X,Y).\]</span>
+The conditional entropy <span class="math inline">\(H(Y|X)\)</span> is <span class="math display">\[H(Y|X) =\]</span></p>
+<h2 id="problems">Problems</h2>
+<p><strong>1.</strong> <span class="math inline">\(H(X) = - \sum_{x \in \mathcal{X}} p(x) \log p(x).\)</span> When flipping a coin, the sum becomes</p>
+<p><span class="math display">\[\frac{1}{2} \log \frac{1}{2} + \frac{1}{4} \log \frac{1}{4}...\]</span></p>
+<p>which is just</p>
+<p><span class="math display">\[\frac{1}{2} \log \frac{1}{2} + \frac{2}{4} \log \frac{1}{2} + \frac{3}{8} \cdot \log \frac{1}{2}...\]</span></p>
+<p>which means that</p>
+<p><span class="math display">\[H(X) = - \log \frac{1}{2} \cdot \frac{1/2}{(1-1/2)^2} = - 2 \log \frac{1}{2} = \boxed{2 \text{ bits}}?\]</span></p>
+<p><strong>2.</strong> For (a), I assume <span class="math inline">\(H(Y) &gt; H(X),\)</span> and for (b) I assume <span class="math inline">\(H(Y) &lt; H(X)?\)</span></p>
+
+        </div>
+        <div id="footer">
+            <p></p>
+        </div>
+    </body>
+</html>

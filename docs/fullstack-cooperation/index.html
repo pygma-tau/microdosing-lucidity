@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+        <title>Fullstack Cooperation</title>
+        <link rel="stylesheet" type="text/css" href="../css/default.css" />
+        <script src="../js/bootstrap.min.js"></script>
+        <script type="text/javascript" async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+    </head>
+    <body>
+        <div id="header">
+            <div id="logo">
+            </div>
+            <div id="navigation">
+                <p></p>
+            </div>
+        </div>
+
+        <div id="content">
+            <h1>Fullstack Cooperation</h1>
+
+            <div class="info">
+
+    
+
+    
+    
+</div>
+
+<p>The Probabilistic Payor’s Lemma implies the following cooperation strategy:</p>
+<p>Let <span class="math inline">\(A_{1}, \ldots, A_{n}\)</span> be agents in a multiplayer Prisoner’s Dilemma, with the ability to return either ‘Cooperate’ or ‘Defect’ (which we model as the agents being logical statements resolving to either ‘True’ or ‘False’). Each <span class="math inline">\(A_{i}\)</span> behaves as follows:</p>
+<p><span class="math display">\[ 
+\, \vdash \Box_{p_{i}} \left( \Box_{\max \{p_{1},\ldots, p_{n}\}}\bigwedge_{k=1}^n A_{k} \to \bigwedge_{k=1}^n A_{k} \right) \to A_{i}
+\]</span></p>
+<p>Where <span class="math inline">\(p_i\)</span> represents each individual agents’ threshold for cooperation (as a probability in <span class="math inline">\([0,1]\)</span>), <span class="math inline">\(\Box_p \, \phi\)</span> returns True if credence in the statement <span class="math inline">\(\phi\)</span> is greater than <span class="math inline">\(p,\)</span> and the conjunction of <span class="math inline">\(A_{1}, \ldots, A_{n}\)</span> represents ‘everyone cooperates’. Then, by the PPL, all agents cooperate (provided that all <span class="math inline">\(\mathbb{P}_{A_{i}}\)</span> give credence to the cooperation statement greater than each and every <span class="math inline">\(A_{i}\)</span>’s individual thresholds for cooperation).</p>
+<p>This formulation is desirable for a number of reasons: firstly, the Payor’s Lemma is much simpler to prove than Lob’s Theorem, and doesn’t carry with it the same strange consequences as a result of asserting an arbitrary modal-fixedpoint; second, when we relax the necessitation requirement from ‘provability’ to ‘belief’, this gives us behavior much more similar to how agents actually I read it as it emphasizing the notion of ‘evidence’ being important.</p>
+<p>However, the consistency of this ‘p-belief’ modal operator rests on the self-referential probabilistic logic proposed by Christiano 2012, which, while being consistent, has a few undesirable properties: the distribution over sentences automatically assigns probability 1 to all True statements and 0 to all False ones (meaning it can only really model uncertainty for statements not provable within the system).</p>
+<p>I propose that we can transfer the intuitions we have from probabilistic modal logic to a setting where ‘p-belief’ is analogous to calling a ‘reflective oracle’, and this system gets us similar (or identical) properties of cooperation.</p>
+<h1 id="oracles">Oracles</h1>
+<p>A <em>probabilistic oracle</em> <span class="math inline">\(O\)</span> is a function from <span class="math inline">\(\mathbb{N} \to [0,1]^\mathbb{N}.\)</span> Here, its domain is meant to represent an indexing of <em>probabilistic oracle machines,</em> which are simply Turing machines allowed to call an oracle for input. An oracle can be queried with tuples of the form <span class="math inline">\((M, p),\)</span> where <span class="math inline">\(M\)</span> is a probabilistic oracle machine and <span class="math inline">\(p\)</span> is a rational number between 0 and 1. By Fallenstein et. al. 2015, there exists a <em>reflective oracle</em> on each set of queries such that <span class="math inline">\(O(M,p) = 1\)</span> if <span class="math inline">\(\mathbb{P}(M() = 1) &gt; p,\)</span> and <span class="math inline">\(O(M,p) = 0\)</span> if <span class="math inline">\(\mathbb{P}(M() = 0) &lt; 1-p\)</span> (check this).</p>
+<p>Notice that a reflective oracle has similar properties to the <span class="math inline">\(Bel\)</span> operator in self-referential probabilistic logic. It has a coherent probability distribution over probabilistic oracle machines (as opposed to sentences), it only gives information about the probability to arbitrary precision via queries (<span class="math inline">\(O(M,p)\)</span> vs. <span class="math inline">\(Bel(\phi)\)</span>). So, it would be great if there was a canonical method of relating the two.</p>
+<p>Peano Arithmetic is Turing-complete, there exists a method of embedding arbitrary Turing machines in statements in predicate logic and there also exist various methods for embedding Turing machines in PA. We can form a correspondence where implications are preserved: notably, <span class="math inline">\(x\to y\)</span> simply represents the program <code>if TM(x), then TM(y)</code> , and negations just make the original TM output 1 where it outputted 0 and vice versa.</p>
+<p>(Specifically, we’re identifying non-halting Turing machines with propositions and operations on those propositions with different ways of composing the component associated Turing machines. Roughly, a Turing machine outputting 1 on an input is equivalent to a given sentence being true on that input)</p>
+<p>CDT, expected utility maximizing agents with access to the same reflective oracle will reach Nash equilibria, because reflective oracles can <em>model other oracles</em> and <em>other oracles that are called by other probabilistic oracle machines</em>—so, at least in the unbounded setting, we don’t have to worry about infinite regresses, because the oracles are guaranteed to halt.</p>
+<p>So, we can consider the following bot:
+<span class="math display">\[
+A_{i} := O_{i} \left( O_{\bigcap i} \left( \bigwedge_{k=1}^n A_{k}\right) \to \bigwedge_{k=1}^n A_{k}, \, p_{i}\right),
+\]</span>
+where <span class="math inline">\(A_i\)</span> is an agent represented by a oracle machine, <span class="math inline">\(O_i\)</span> is the probabilistic oracle affiliated with the agent, <span class="math inline">\(O_{\bigcap i}\)</span> is the closure of all agents’ oracles, and <span class="math inline">\(p_{i} \in \mathbb{Q} \cap [0,1]\)</span> is an individual probability threshold set by each agent.</p>
+<p>How do we get these closures? Well, ideally <span class="math inline">\(O_{\bigcap i}\)</span> returns <span class="math inline">\(0\)</span> for queries <span class="math inline">\((M,p)\)</span> if <span class="math inline">\(p &lt; \min\{p_{M_1}, \ldots, p_{M_n}\}\)</span> and <span class="math inline">\(1\)</span> if <span class="math inline">\(p &gt; \max \{p_{M_1}, \ldots, p_{M_n}\},\)</span> and randomizes for queries in the middle—for the purposes of this cooperation strategy, this turns out to work.</p>
+<p>I claim this set of agents has the same behavior as those acting in accordance with the PPL: they will all cooperate if the ‘evidence’ for cooperating is above each agents’ individual threshold <span class="math inline">\(p_i.\)</span> In the previous case, the ‘evidence’ was the statement <span class="math inline">\(\Box_{\max \{p_{1},\ldots, p_{n}\}}\bigwedge_{k=1}^n A_{k} \to \bigwedge_{k=1}^n A_{k}.\)</span> Here, the evidence is the statement <span class="math inline">\(O_{\bigcap i} \left( \bigwedge_{k=1}^n A_{k}\right) \to \bigwedge_{k=1}^n A_{k}.\)</span></p>
+<p>To flesh out the correspondence further, we can show that the relevant properties of the <span class="math inline">\(p\)</span>-belief operator are found in reflective oracles as well: namely, that instances of the weak distribution axiom schema are coherent and that necessitation holds.</p>
+<p>For necessitation, <span class="math inline">\(\vdash \phi \implies \vdash \Box_{p}\phi\)</span> turns into <span class="math inline">\(M_{\phi}() = 1\)</span> implying that <span class="math inline">\(O(M_{\phi},p)=1,\)</span> which is true by the properties of reflective oracles. For weak distributivity, <span class="math inline">\(\vdash \phi \to \psi \implies \vdash \Box_{p} \phi \to \Box_{p}\psi\)</span> can be analogized to ’if it is true that the Turing machine associated with <span class="math inline">\(\phi\)</span> outputs 1 implies that the Turing machine associated with <span class="math inline">\(\psi\)</span> outputs 1, then you should be at least <span class="math inline">\(\phi\)</span>-certain that <span class="math inline">\(\psi\)</span>-outputs 1, so <span class="math inline">\(O(M_{\phi},p)\)</span> should imply <span class="math inline">\(O(M_{\psi}, p)\)</span> in all cases (because oracles represent true properties of probabilistic oracle machines, which Turing machines can be embedded into).</p>
+<h1 id="models">Models</h1>
+<p>Moreover, we can consider oracles to be a rough model of the p-belief modal language in which the probabilistic Payor’s Lemma holds. We can get an explicit model to ensure consistency (see the links with Christiano’s system, as well as its interpretation in neighborhood semantics), but oracles seem like a good intuition pump because they actively admit queries of the same form as <span class="math inline">\(Bel(\phi)&gt;p,\)</span> and they are a nice computable analog.</p>
+<p>They’re a bit like the probabilistic logic in the sense that a typical reflective oracle just has full information about what the output of a Turing machine will be if it halts, and the probabilistic logic gives <span class="math inline">\(\mathbb{P}(\phi)=1\)</span> to all sentences which are deducible from the set of tautologies in the language. So the correspondence has some meat.</p>
+
+        </div>
+        <div id="footer">
+            <p></p>
+        </div>
+    </body>
+</html>

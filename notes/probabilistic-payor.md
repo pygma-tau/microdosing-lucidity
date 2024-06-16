@@ -32,7 +32,8 @@ It is known that Lob's theorem [fails to hold in reflective theories of logical 
 - **Weak Distributivity:** $\vdash x \to y \implies \vdash \Box_p \, x \to \Box_p \, y.$
 where here we take $\Box_p$ to be an operator which returns True if the internal credence of $x$ is greater than $p$ and False if not. (Formalisms incoming).
 
-The question is then: does there exist a consistent formalism under which these rules of inference hold? The answer is yes, and it is provided by [Christiano 2012](http://intelligence.org/files/DefinabilityTruthDraft.pdf). 
+The question is then: does there exist a consistent formalism under which these rules of inference hold? The answer is yes, and it is provided by [Christiano 2012](http://intelligence.org/files/DefinabilityTruthDraft.pdf).
+
 # Setup
 
 (Regurgitation and rewording of the relevant parts of the [Definability of Truth](http://intelligence.org/files/DefinabilityTruthDraft.pdf))
@@ -59,7 +60,8 @@ Consider the formula $Bel.$ $Bel$ takes as input the Godel encodings of sentence
 
 Let $L'$ denote the language created by affixing $Bel$ to $L.$ Then, there exists a coherent $\mathbb{P}_T$ for a given consistent theory $T$ over $L$ such that the following reflection principle is satisfied:
 $$\forall \phi \in L' \, \, \forall a,b, \in \mathbb{Q} : (a < \mathbb{P}_{T}(\phi)<b) \implies \mathbb{P}_{T}(a < Bel(\ulcorner \phi \urcorner) < b) = 1.$$
-In other words, $a  < \mathbb{P}_T(\phi) < b$ implies $T \vdash a < Bel(\ulcorner \phi \urcorner) < b.$ 
+In other words, $a  < \mathbb{P}_T(\phi) < b$ implies $T \vdash a < Bel(\ulcorner \phi \urcorner) < b.$
+
 # Proof
 
 (From now, for simplicity, we use $\mathbb{P}$ to refer to $\mathbb{P}_T$ and $\vdash$ to refer to $T \vdash.$ You can think of this as fixing some theory $T$ and operating within it).
@@ -101,6 +103,7 @@ Consider agents $A,B,C$ which return True to signify cooperation in a multi-agen
 Each agent has the ability to reason about their own 'beliefs' about the world arbitrarily precisely, and this allows them full knowledge of their utility function (if they are VNM agents, and up to the complexity of the world-states they can internally represent). Then, these agents can be modeled with Christiano's probabilistic logic! And I would argue it is natural to do so (you could easily imagine an agent having access to its own beliefs with arbitrary precision by, say, repeatedly querying its own preferences).
 
 Then, if $A,B,C$ each behave in the following manner:
+
 - $\vdash \Box_a \, (\Box_e \, E \to E) \to A,$
 - $\vdash  \Box_b \, (\Box_e \, E \to E) \to B,$
 - $\vdash \Box_c \, (\Box_e \, E \to E) \to C,$
